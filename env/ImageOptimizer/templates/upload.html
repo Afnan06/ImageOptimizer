@@ -1,0 +1,132 @@
+<!Doctype  html>
+<html>
+    <head>
+        <title> Flask Web </title>
+        <style> 
+        
+#opt-button {
+    display: none;
+}
+#myText1 {
+    display: none;
+}
+#myText2 {
+    display: none;
+}
+#myText3 {
+    display: none;
+}
+#myText4 {
+    display: none;
+}
+#myText5 {
+    display:block
+}
+#myText6 {
+    display: block;
+}
+ 
+ 
+       
+  </style>
+    </head>
+    <body>
+        <h1> Upload file </h1>
+      
+        <form action="/uploader" method="post" enctype="multipart/form-data">
+            <input type="file" name="file1" id= "ufile" onchange="myFunction2()" multiple >
+            <!--<button type="submit"> Upload </button>-->
+            <label for="cars">Choose Services</label>
+  <select name="Services" id="cars" >
+    <optgroup label="Services">
+      
+      <option value="Hosted">Hosted</option>
+      <option name="Tinify" value="Tinify">Tinify</option>
+    </optgroup>
+    
+  </select>
+
+
+  
+  <br><br>
+   <select name="tservice" id="tcars" onchange="myFunction()">
+   <option value="Compress">compress</option>
+   
+      <option name="Resize" value="Resize">resize</option>
+      
+   
+    
+  </select>
+  <p>
+          <label id = "myText1">Height</label>
+          <input type = "width="
+          name="height"
+                 id = "myText2"
+                 value = "0" />
+        </p>
+    <p>
+          <label id = "myText3">Width</label>
+          <input type = "text"
+          name="width"
+                 id = "myText4"
+                 value = "0" />
+        </p>
+        <p>
+          <label id = "myText5">Quality </label>
+          <input type = "text"
+          name="quality"
+                 id = "myText6"
+                 value = "0" />
+        </p>
+  <input type="submit" id="opt-button" name="opt" value="Optimize and Download" >
+        </form>
+
+        
+  
+<script>
+function myFunction() {
+    var x = document.getElementById("tcars").value;
+    if(x == "Resize"){
+    
+    document.getElementById("myText5").style.display="none";
+    document.getElementById("myText6").style.display="none";
+       document.getElementById("myText1").style.display="block";
+       document.getElementById("myText2").style.display="block";
+       document.getElementById("myText3").style.display="block";
+       document.getElementById("myText4").style.display="block";
+    }
+    else{
+        document.getElementById("myText5").style.display="block";
+    document.getElementById("myText6").style.display="block";
+        document.getElementById("myText1").style.display="none";
+        document.getElementById("myText2").style.display="none";
+        document.getElementById("myText3").style.display="none";
+        document.getElementById("myText4").style.display="none";
+
+    }
+}
+function myFunction2() {
+    var x = document.getElementById("ufile").value;
+    if(x != ""){
+       document.getElementById("opt-button").style.display="block";
+    }
+    else{
+        document.getElementById("opt-button").style.display="none";
+
+    }
+}
+
+
+</script>
+ <!--
+<h> Download file </h>
+<p> <a href="{{url_for('download_file')}}"> Download <a/>
+</p>
+-->
+
+
+ 
+    </body>
+
+
+</html>
